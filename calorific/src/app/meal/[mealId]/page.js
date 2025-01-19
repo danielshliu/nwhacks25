@@ -27,8 +27,8 @@ export default function MealPage() {
     );
   }
 
-  const meal = queryData.find((meal) => meal._id === mealId);
-  const mealImage = mealImages.find((image) => image.id === meal._id);
+  const meal = queryData?.find((meal) => meal._id === mealId);
+  const mealImage = mealImages?.find((image) => image.id === meal._id);
 
   console.log("mealImage", mealImage);
 

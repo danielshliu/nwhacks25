@@ -90,7 +90,7 @@ export default function Home() {
             {queryData &&
               queryData.map((meal) => {
                 console.log(meal);
-                const imageUrl = mealImages.find(
+                const imageUrl = mealImages?.find(
                   (image) => image.id === meal._id
                 )?.imageUrl;
 
