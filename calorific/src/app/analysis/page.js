@@ -1,10 +1,11 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Analyze() {
+function AnalyzeContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [image, setImage] = useState("");
@@ -56,5 +57,19 @@ export default function Analyze() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function Analyze() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-black text-white flex items-center justify-center">
+          <div>Loading...</div>
+        </div>
+      }
+    >
+      <AnalyzeContent />
+    </Suspense>
   );
 }
