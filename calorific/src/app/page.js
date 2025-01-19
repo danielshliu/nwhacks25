@@ -1,10 +1,21 @@
 "use client";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { Paytone_One, Yeseva_One } from "next/font/google";
 // import Photo from "@/app/photo/page"
 // import Login from "./login/page";
 
 import { useRouter } from "next/navigation";
+
+const paytonOne = Paytone_One({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const yesevaOne = Yeseva_One({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function Home() {
   const router = useRouter();
@@ -25,7 +36,11 @@ export default function Home() {
       <div className="bg-cream-white min-h-fit">
         {/* Top left on home page */}
         <div className="flex justify-between items-center p-4">
-          <div className="text-xl font-bold text-black">calorific</div>{" "}
+          <div
+            className={`text-xl font-bold text-black ${paytonOne.className}`}
+          >
+            calorific
+          </div>{" "}
           {/* change font of this */}
           <div className="text-lg cursor-pointer text-black">
             <SignedIn>
@@ -43,7 +58,7 @@ export default function Home() {
 
         {/* Centered title section */}
         <div className="text-center mt-10 text-black">
-          <h1 className="text-4xl font-bold">
+          <h1 className={`${yesevaOne.className} text-4xl font-bold`}>
             what are we <br></br> eating today?
           </h1>
           <hr className="ml-10 mr-10 my-4 border-t-1 border-gray-500"></hr>

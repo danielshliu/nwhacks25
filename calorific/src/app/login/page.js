@@ -11,7 +11,14 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Paytone_One } from "next/font/google";
+
 import Link from "next/link";
+
+const paytonOne = Paytone_One({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function login() {
   const { isSignedIn } = useAuth();
@@ -28,7 +35,10 @@ export default function login() {
       {/* Header */}
 
       <div className="absolute top-0 left-0 p-4 flex justify-between w-full">
-        <Link className="text-xl font-bold text-black" href="/">
+        <Link
+          className={`text-xl font-bold text-black ${paytonOne.className}`}
+          href="/"
+        >
           calorific
         </Link>
       </div>
