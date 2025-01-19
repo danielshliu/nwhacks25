@@ -243,10 +243,10 @@ export default function Photo() {
             </video>
           </div>
 
-          <div className="p-6 flex border-2 items-center">
+          <div className="p-6 flex items-center">
             <button
               onClick={() => setDataUri("")}
-              className="text-white text-lg border-2 max-w-32"
+              className="text-white text-lg max-w-32 hover:text-light-orange"
             >
               Cancel
             </button>
@@ -258,7 +258,7 @@ export default function Photo() {
               <div className="w-full h-full rounded-full bg-white"></div>
             </button>
 
-            <label className="text-white text-lg max-w-32 border-2">
+            <label className="text-white text-lg max-w-32 hover:text-light-orange">
               Upload from Camera Roll
               <input
                 type="file"
