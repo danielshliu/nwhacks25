@@ -1,11 +1,15 @@
 "use client";
 
+import Link from "next/link";
+
 export default function login() {
   return (
     <div className="bg-cream-white flex flex-col items-center justify-center h-screen">
       {/* Header */}
+
       <div className="absolute top-0 left-0 p-4">
-        <div className="text-xl font-bold text-black">calorific</div>
+        <Link className="text-xl font-bold text-black" href="/">calorific</Link>
+        {/* <div className="text-xl font-bold text-black">calorific</div> */}
       </div>
 
       <div className="w-full max-w-md px-6">
