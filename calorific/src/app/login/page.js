@@ -12,7 +12,7 @@ export default function login() {
         <h2 className="text-2xl font-bold mb-2 text-center text-black">
           Log in
         </h2>
-        <p className="text-center mb-8">
+        <p className="text-center mb-8 text-black">
           Don't have an account?{" "}
           <a href="/signup" className="underline">
             Sign up
