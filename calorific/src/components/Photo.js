@@ -1,14 +1,29 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-
+import { useAction } from "convex/react";
 import Link from "next/link";
+import { useAuth } from "@clerk/nextjs";
+import { api } from "../../convex/_generated/api";
 
-function AnalyzeComponent({ results, setResults, resetCamera, dataUri }) {
+function AnalyzeComponent({
+  results,
+  setResults,
+  resetCamera,
+  dataUri,
+  router,
+}) {
+  const storeImage = useAction(api.images.storeImage);
+  const { isLoaded, userId } = useAuth();
   // Calculate total calories from components
   const totalCalories = results.components.reduce(
     (sum, component) => sum + component.calories,
     0
   );
+
+  const saveMeal = async () => {
+    await storeImage({ image: dataUri, results, userId: userId });
+    router.push("/profile");
+  };
 
   return (
     <div className="p-6 bg-[#FDF8F5] text-black">
@@ -45,14 +60,27 @@ function AnalyzeComponent({ results, setResults, resetCamera, dataUri }) {
           ))}
         </div>
       </div>
-      <button
-        onClick={() => {
-          resetCamera();
-        }}
-        className="w-full rounded-full border-[1px] border-orange-300 py-3 mt-6 bg-[#FDF8F5] text-black text-lg font-semibold"
-      >
-        Take Another Photo
-      </button>
+      <div className="flex justify-between gap-x-6 items-center">
+        <button
+          onClick={() => {
+            resetCamera();
+          }}
+          className="w-full rounded-full border-[1px] border-orange-300 py-3 mt-6 bg-[#D3C5B7] text-black text-lg font-semibold"
+        >
+          Take Another Photo
+        </button>
+
+        {isLoaded && (
+          <button
+            onClick={() => {
+              saveMeal();
+            }}
+            className="w-full rounded-full border-[1px] border-orange-300 py-3 mt-6 bg-[#F9AC76] text-black text-lg font-semibold"
+          >
+            Save Meal
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -204,6 +232,7 @@ export default function Photo() {
               setResults={setResults}
               resetCamera={retakePhoto}
               dataUri={dataUri}
+              router={router}
             />
           ) : (
             // Show action buttons
