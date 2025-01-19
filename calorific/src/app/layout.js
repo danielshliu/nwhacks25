@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+// import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 

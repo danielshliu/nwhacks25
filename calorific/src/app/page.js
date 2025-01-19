@@ -28,6 +28,9 @@ export default function Home() {
           <div className="text-xl font-bold text-black">calorific</div>{" "}
           {/* change font of this */}
           <div className="text-lg cursor-pointer text-black">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
             {/* <span className="material-icons">
               <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line y1="2" x2="23.8924" y2="2" stroke="#878787" strokeWidth="4"/>
@@ -56,12 +59,14 @@ export default function Home() {
 
         {/* Buttons for logging in and quick scan */}
         <div className="flex flex-col items-center -mt-10 space-y-4">
-          <button
-            onClick={() => router.push("/login")}
-            className="px-6 py-2 bg-login-button-color text-black rounded hover:bg-blue-600"
-          >
-            Log In
-          </button>
+          <SignedOut>
+            <button
+              onClick={() => router.push("/login")}
+              className="px-6 py-2 bg-login-button-color text-black rounded hover:bg-blue-600"
+            >
+              Log In
+            </button>
+          </SignedOut>
           <button
             onClick={() => router.push("/photo")}
             className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-green-600"
