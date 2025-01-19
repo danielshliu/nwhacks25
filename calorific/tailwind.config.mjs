@@ -21,6 +21,8 @@ export default {
         foreground: "var(--foreground)",
         'theme-orange'                    : '#F5853F',
         'light-orange'                    : '#F9BB78',
+        'login-button-color'              : '#EACEBB',   
+        'quick-scan-button-color'         : '#E5BC9F',  
         'white'                           : '#ffffff',
         'black'                           : '#000000',
         'placeholder-color-1'             : '#ff29a2',

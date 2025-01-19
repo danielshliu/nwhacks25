@@ -1,7 +1,7 @@
 "use client";
 
-import Photo from "@/app/photo/page"
-import Login from "./login/page";
+// import Photo from "@/app/photo/page"
+// import Login from "./login/page";
 
 import {useRouter} from "next/navigation";
 
@@ -40,8 +40,8 @@ export default function Home() {
 
         {/* Buttons for logging in and quick scan */}
         <div className="flex flex-col items-center -mt-10 space-y-4">
-          <button onClick={() => router.push('/login')} className="px-6 py-2 bg-theme-orange text-white rounded hover:bg-blue-600">Log In</button>
-          <button onClick={() => router.push('/photo')} className="px-6 py-2 bg-light-orange text-white rounded hover:bg-green-600">Quick Scan</button>
+          <button onClick={() => router.push('/login')} className="px-6 py-2 bg-login-button-color text-black rounded hover:bg-blue-600">Log In</button>
+          <button onClick={() => router.push('/photo')} className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-green-600">Quick Scan</button>
         </div>
 
         {/* How it works and more details !!!!! need to add padding to the bottom */}

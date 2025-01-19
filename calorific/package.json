@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/core": "^0.37.0",
+    "@convex-dev/auth": "^0.0.80",
+    "convex": "1.18.2",
     "dynamsoft-camera-enhancer": "^2.3.2",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.7.3"
   }
 }

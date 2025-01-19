@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import {useRouter} from "next/navigation";
-import Dynamasoft from 'dynamsoft-camera-enhancer';
+// import Dynamsoft from 'dynamsoft-camera-enhancer';
 
 export default function photos(){
     const router = useRouter();
@@ -10,55 +10,48 @@ export default function photos(){
     useEffect(() => {
         let enhancer = null;
         
-        
-        (async() => {
+       
+        const initializeEnhancer = async () => {
             enhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
             const enhancerContainer = document.getElementById('enhancerUIContainer');
             enhancerContainer.appendChild(enhancer.getUIElement());
             await enhancer.open(true);
 
-        })
-        // const initializeEnhancer = async () => {
-        //     enhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance();
-        //     const enhancerContainer = document.getElementById('enhancerUIContainer');
-        //     enhancerContainer.appendChild(enhancer.getUIElement());
-        //     await enhancer.open(true);
+            const captureButton = document.getElementById('capture');
+            captureButton.onclick = () => {
+                if (enhancer) {
+                    let frame = enhancer.getFrame();
 
-        const captureButton = document.getElementById('capture');
-        captureButton.onclick = () => {
-            if (enhancer) {
-                let frame = enhancer.getFrame();
+                    let width = screen.availWidth;
+                    let height = screen.availHeight;
+                    let popW = 640,
+                        popH = 640;
+                        
+                    let left = (width - popW) / 2;
+                    let top = (height - popH) / 2;
 
-                let width = screen.availWidth;
-                let height = screen.availHeight;
-                let popW = 640,
-                    popH = 640;
-                    
-                let left = (width - popW) / 2;
-                let top = (height - popH) / 2;
-
-                const popWindow = window.open(
-                    '',
-                    'popup',
-                    `width=${popW},height=${popH},top=${top},left=${left},scrollbars=yes`
-                );
-                popWindow.document.body.appendChild(frame.canvas);
-            }
+                    const popWindow = window.open(
+                        '',
+                        'popup',
+                        `width=${popW},height=${popH},top=${top},left=${left},scrollbars=yes`
+                    );
+                    popWindow.document.body.appendChild(frame.canvas);
+                }
+            };
         };
-        
 
-        // initializeEnhancer();
+        initializeEnhancer();
 
         return () => {
             if (enhancer) {
                 enhancer.close();
             }
-        },
+        };
     }, []);
 
     return (
         <div className="grid place-items-center min-h-screen bg-black">
-            {/* <script src="https://unpkg.com/dynamsoft-camera-enhancer@2.1.0/dist/dce.js"></script> */}
+            <script src="https://unpkg.com/dynamsoft-camera-enhancer@2.1.0/dist/dce.js"></script>
             <div className="grid gap-6 text-center">
                 <h1 className="text-cream-white">Quick Scan / Upload Your Meal</h1>
                 <div
