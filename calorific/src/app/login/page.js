@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  UserButton,
+} from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function login() {
@@ -7,9 +14,16 @@ export default function login() {
     <div className="bg-cream-white flex flex-col items-center justify-center h-screen">
       {/* Header */}
 
-      <div className="absolute top-0 left-0 p-4">
-        <Link className="text-xl font-bold text-black" href="/">calorific</Link>
-        {/* <div className="text-xl font-bold text-black">calorific</div> */}
+      <div className="absolute top-0 left-0 p-4 flex justify-between w-full">
+        <Link className="text-xl font-bold text-black" href="/">
+          calorific
+        </Link>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
 
       <div className="w-full max-w-md px-6">
@@ -23,7 +37,22 @@ export default function login() {
           </a>
         </p>
 
-        <form action="#" method="POST">
+        <SignedOut>
+          <SignInButton>
+            <button className="w-full bg-[#E4B7A0] text-black py-3 rounded-full hover:bg-[#d6a08c] focus:outline-none transition-colors">
+              Sign In
+            </button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <SignOutButton>
+            <button className="w-full bg-[#E4B7A0] text-black py-3 rounded-full hover:bg-[#d6a08c] focus:outline-none transition-colors">
+              Sign Out
+            </button>
+          </SignOutButton>
+        </SignedIn>
+
+        {/* <form action="#" method="POST">
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 mb-2">
               Email
@@ -56,7 +85,7 @@ export default function login() {
           >
             Log in
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );
