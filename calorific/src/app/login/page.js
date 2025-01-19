@@ -1,34 +1,59 @@
 "use client";
 
+export default function login() {
+  return (
+    <div className="bg-cream-white flex flex-col items-center justify-center h-screen">
+      {/* Header */}
+      <div className="absolute top-0 left-0 p-4">
+        <div className="text-xl font-bold text-black">calorific</div>
+      </div>
 
-export default function login(){
-    return(
-        <div className="bg-cream-white flex items-center justify-center h-screen">
-            {/* Top left on home page */}
-            <div className="flex justify-between items-center p-4">
-                <div className="text-xl font-bold text-black">calorific</div> {/* change font of this */}
-                <div className="text-2xl cursor-pointer text-black">
-                    <span className="material-icons">
-                    <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="2" x2="23.8924" y2="2" stroke="#878787" strokeWidth="4"/>
-                        <line x1="0.107635" y1="20" x2="24" y2="20" stroke="#878787" strokeWidth="4"/>
-                        <line x1="0.107635" y1="11" x2="24" y2="11" stroke="#878787" strokeWidth="4"/>
-                    </svg>
-                </span>
-                </div>
-            </div>
-            <h2 className="text-2xl font-bold mb-6 text-center text-black">Login</h2>
-            <form action="#" method="POST">
-                <div className="mb-4">
-                    <label for="email" className="block text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
-                </div>
-                <div className="mb-6">
-                    <label for="password" className="block text-gray-700">Password</label>
-                    <input type="password" id="password" name="password" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
-                </div>
-                <button type="submit" className="w-full bg-light-orange text-white py-2 rounded-lg hover:bg-theme-orange focus:outline-none focus:ring-2 focus:ring-blue-500">Log in</button>
-            </form>
-        </div>
-    );
+      <div className="w-full max-w-md px-6">
+        <h2 className="text-2xl font-bold mb-2 text-center text-black">
+          Log in
+        </h2>
+        <p className="text-center mb-8">
+          Don't have an account?{" "}
+          <a href="/signup" className="underline">
+            Sign up
+          </a>
+        </p>
+
+        <form action="#" method="POST">
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-700 mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-500 bg-transparent text-black"
+              required
+            />
+          </div>
+          <div className="mb-8">
+            <label htmlFor="password" className="block text-gray-700 mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="w-full px-3 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-500 bg-transparent text-black"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-[#E4B7A0] text-black py-3 rounded-full hover:bg-[#d6a08c] focus:outline-none transition-colors"
+          >
+            Log in
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
