@@ -12,6 +12,13 @@ const imageCache = {};
 export async function POST(request) {
   try {
     const { image } = await request.json();
+    if (!image) {
+      return NextResponse.json({ error: "No image provided" }, { status: 400 });
+    }
+
+    if (imageCache[image]) {
+      return NextResponse.json(imageCache[image], { status: 200 });
+    }
 
     // TODO: Add your image analysis logic here
     // For example, calling a third-party API or your own ML model
@@ -74,6 +81,7 @@ export async function POST(request) {
     console.log(text);
 
     const json = JSON.parse(text);
+    imageCache[image] = json;
 
     // Dummy response for now
     // const results = {
