@@ -44,7 +44,8 @@ export default function Home() {
           {/* change font of this */}
           <div className="text-lg cursor-pointer text-black">
             <SignedIn>
-              <UserButton />
+              <UserButton/>
+
             </SignedIn>
             {/* <span className="material-icons">
               <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,16 +76,18 @@ export default function Home() {
         {/* Buttons for logging in and quick scan */}
         <div className="flex flex-col items-center -mt-10 space-y-4">
           <SignedOut>
+            <SignInButton>
             <button
-              onClick={() => router.push("/login")}
-              className="px-6 py-2 bg-login-button-color text-black rounded hover:bg-blue-600"
+              // onClick={() => router.push("/login")}
+              className="px-6 py-2 bg-login-button-color text-black rounded hover:bg-theme-orange"
             >
-              Log In
+              Log in / Sign Up
             </button>
+            </SignInButton>
           </SignedOut>
           <button
             onClick={() => router.push("/photo")}
-            className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-green-600"
+            className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-theme-orange transition ease-in-out"
           >
             Quick Scan
           </button>

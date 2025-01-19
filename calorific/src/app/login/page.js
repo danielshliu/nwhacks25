@@ -62,7 +62,7 @@ export default function login() {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          <UserButton/>
         </SignedIn>
 
 
