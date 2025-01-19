@@ -3,10 +3,10 @@ import { generateText } from "ai";
 import { createOpenAI as createGroq } from "@ai-sdk/openai";
 import ollama from "ollama";
 
-const groq = createGroq({
-  baseURL: "https://api.groq.com/openai/v1",
-  apiKey: process.env.GROQ_API_KEY,
-});
+// const groq = createGroq({
+//   baseURL: "https://api.groq.com/openai/v1",
+//   apiKey: process.env.GROQ_API_KEY,
+// });
 
 const imageCache = {};
 export async function POST(request) {

@@ -17,13 +17,13 @@ function AnalyzeComponent({ results, setResults, resetCamera, dataUri }) {
         <button className="text-2xl">✎</button>
       </div>
 
-      <div className="mb-8">
+      <div className="h-2/5 mb-8">
         <img
           src={dataUri}
           alt="Analyzed meal"
-          className="w-full rounded-3xl shadow-lg mb-4"
+          className="object-scale-down max-h-full m-auto rounded-3xl shadow-lg mb-4"
         />
-        <div className="text-2xl font-semibold">~ {totalCalories} kcal</div>
+        <div className="text-2 font-semibold">~ {totalCalories} kcal</div>
       </div>
 
       {/* Components List */}
@@ -61,7 +61,7 @@ export default function Photo() {
   const router = useRouter();
   const [streaming, setStreaming] = useState(false);
   const [dataUri, setDataUri] = useState("");
-  const [dimensions, setDimensions] = useState({ width: 320, height: 240 });
+  const [dimensions, setDimensions] = useState({ width: 1200, height: 600 });
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const photoRef = useRef(null);
@@ -72,7 +72,7 @@ export default function Photo() {
     // Set dimensions after component mounts (client-side only)
     setDimensions({
       width: window.innerWidth,
-      height: window.innerWidth * (16 / 9),
+      height: window.innerHeight,
     });
   }, []);
 
@@ -228,18 +228,18 @@ export default function Photo() {
       ) : (
         // Camera Screen
         <div className="flex flex-col h-screen">
-          <div className="p-6 flex items-center gap-2">
+          <div className="p-6 flex justify-center gap-2">
             <h1 className="text-2xl font-bold">
               Quick Scan / Upload your Meal
             </h1>
             <span className="text-2xl">⚡</span>
           </div>
 
-          <div className="flex-1 bg-neutral-900 relative">
+          <div className="flex-1 flex justify-center relative">
             <video
               ref={videoRef}
               onCanPlay={handleCanPlay}
-              className="w-full h-full object-cover"
+              className="w-50% h-full object-cover"
             >
               Video stream not available.
             </video>
