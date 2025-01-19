@@ -26,6 +26,7 @@ export default {
         'placeholder-color-2'             : '#1226ff',
         'placeholder-background-1'        : '#00ff2f',
         'placeholder-background-2'        : '#eeff00',
+        'cream-white'                     : 'FFF8F0',
       },
     },
   },

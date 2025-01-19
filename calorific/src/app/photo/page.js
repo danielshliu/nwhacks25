@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 
 
-
 export default function photos(){
     useEffect(() => {
         let enhancer = null;
@@ -43,7 +42,7 @@ export default function photos(){
 
         return () => {
             if (enhancer) {
-                enhancer.destroy();
+                enhancer.close();
             }
         };
     }, []);
