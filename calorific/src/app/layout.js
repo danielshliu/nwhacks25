@@ -18,8 +18,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "calorific",
-  description: "keeping track of your meals, one meal at a time",
+  title: "Calorific",
+  description: "Calorie Counting App",
 };
 
 export default function RootLayout({ children }) {

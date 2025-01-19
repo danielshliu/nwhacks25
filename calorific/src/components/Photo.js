@@ -36,7 +36,7 @@ function AnalyzeComponent({
         <img
           src={dataUri}
           alt="Analyzed meal"
-          className="object-scale-down max-h-full m-auto rounded-3xl shadow-lg mb-4"
+          className="object-scale-down h-full m-auto rounded-3xl shadow-lg mb-4"
         />
         <div className="text-2 font-semibold">~ {totalCalories} kcal</div>
       </div>
