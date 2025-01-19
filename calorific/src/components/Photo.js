@@ -258,10 +258,10 @@ export default function Photo() {
         // Camera Screen
         <div className="flex flex-col h-screen">
           <div className="p-6 flex justify-center gap-2">
-            <h1 className="text-2xl font-bold">
+            <h1 className="lg-text-2xl sm-text-xl font-bold">
               Quick Scan / Upload your Meal
             </h1>
-            <span className="text-2xl">⚡</span>
+            <span className="text-2xl"></span>
           </div>
 
           <div className="flex-1 flex justify-center relative">
