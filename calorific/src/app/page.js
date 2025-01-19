@@ -91,8 +91,8 @@ export default function Home() {
         </div>
 
         {/* How it works and more details !!!!! need to add padding to the bottom */}
-        <div className="grid text-center mt-18 py-16">
-          <hr className="ml-10 mr-10 my-4 border-t-1 border-black"></hr>
+        <div className="grid text-center py-8">
+          <hr className="ml-10 mr-10 mb-12 border-t-1 border-black"></hr>
           <div className="grid justify-center">
             <h1 className="text-xl font-bold mb-6 text-black">How it Works:</h1>
 
