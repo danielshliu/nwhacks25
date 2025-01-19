@@ -87,7 +87,7 @@ export default function Home() {
           </SignedOut>
           <button
             onClick={() => router.push("/photo")}
-            className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-theme-orange transition ease-in-out"
+            className="px-6 py-2 bg-quick-scan-button-color text-black rounded hover:bg-theme-orange"
           >
             Quick Scan
           </button>
