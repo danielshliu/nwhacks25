@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'image-default': "url('/included_images/photo-buttonactive.svg')",
+        'image-active': "url('/included_images/photo-buttondefault.svg')",
+      },
       animation: {
         fadeOut: 'fadeOut 2s ease-in-out',
       },
@@ -32,6 +36,11 @@ export default {
         'cream-white'                     : '#FFF8F0',
         'dark-bleu'                       : '#141F39',
       },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundImage: ['active'],
     },
   },
   plugins: [],

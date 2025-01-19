@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
+import Link from "next/link";
+
 function AnalyzeComponent({ results, setResults, resetCamera, dataUri }) {
   // Calculate total calories from components
   const totalCalories = results.components.reduce(
@@ -244,13 +246,21 @@ export default function Photo() {
           </div>
 
           <div className="p-6 flex items-center">
-            <button
+            {/* <button
               onClick={() => setDataUri("")}
               className="text-white text-lg max-w-32 hover:text-light-orange"
             >
               Cancel
-            </button>
+            </button> */}
+            <Link
+              onClick={() => setDataUri("")}
+              className="text-lg text-white max-w-32 hover:text-light-orange hover:font-bold"
+              href="/"
+            >
+              Cancel
+            </Link>
 
+            {/* iphone camera button */}
             <button
               onClick={takePicture}
               className="w-16 h-16 rounded-full mx-auto border-4 border-white p-1"
@@ -258,7 +268,7 @@ export default function Photo() {
               <div className="w-full h-full rounded-full bg-white"></div>
             </button>
 
-            <label className="text-white text-lg max-w-32 hover:text-light-orange">
+            <label className="text-white text-lg max-w-32 hover:text-light-orange hover:font-bold hover:cursor-pointer">
               Upload from Camera Roll
               <input
                 type="file"
